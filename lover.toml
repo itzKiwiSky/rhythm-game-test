@@ -1,0 +1,13 @@
+[package]
+name = "rebuiltAgain"
+description = "we are the return to freddys"
+author = "BrightSmileTeam"
+version = "0.0.1"
+icon = "trtf/icon.png"
+
+[build]
+default = ["love", "win64"]
+
+[directories]
+source = "trtf"
+build = "build"
