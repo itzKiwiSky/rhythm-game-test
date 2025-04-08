@@ -48,7 +48,6 @@ function Player:update(elapsed)
     self.pos.x = self.pos.x + Direction.x * self.speed * elapsed
     self.pos.y = self.pos.y + Direction.y * self.speed * elapsed
 
-    
 
     Direction = Vec2.ZERO()
 
