@@ -48,12 +48,15 @@ function Player:update(elapsed)
     self.pos.x = self.pos.x + Direction.x * self.speed * elapsed
     self.pos.y = self.pos.y + Direction.y * self.speed * elapsed
 
+    
+
     Direction = Vec2.ZERO()
 
     --self.angle = math.lerp(self.angle, Direction:angleTo(self.pos), 0.25)
 
     -- trail --
-    if not Direction:isZero() then
+    self.trailTimer = self.trailTimer + elapsed
+    if self.trailTimer >= 0.05 then
         table.push(self.trail, {
             x = self.pos.x,
             y = self.pos.y,
@@ -61,10 +64,11 @@ function Player:update(elapsed)
             alpha = 0.7,
             scale = 0.65,
         })
+        self.trailTimer = 0
     end
     for _, t in ipairs(self.trail) do
-        t.alpha = t.alpha - elapsed * 3.7
-        t.scale = t.scale - elapsed * 2.5
+        t.alpha = t.alpha - elapsed * 0.7
+        t.scale = t.scale - elapsed * 0.5
         if t.alpha <= 0 or t.scale <= 0 then
             table.remove(self.trail, _)
         end
