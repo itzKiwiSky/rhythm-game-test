@@ -17,6 +17,8 @@ end
 
 function PlayState:update(elapsed)
     self.camera:zoomTo(math.lerp(self.camera.scale, self.camera.targetZoom, 0.1))
+
+    self.player:update(elapsed)
 end
 
 function PlayState:keypressed(k)

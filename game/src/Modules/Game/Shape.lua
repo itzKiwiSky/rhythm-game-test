@@ -1,29 +1,21 @@
-local Shape = class:extend("Shape")
-
-function Shape:__construct(points)
+return function(width, height, points)
+    width = width or 48
+    height = height or 48
     points = points or {
-        {
-            0, 0,
-            0, 0,
-            1, 1, 1,
-        },
-        {
-            1, 0,
-            0, 0,
-            1, 1, 1,
-        },
-        {
-            1, 1,
-            0, 0,
-            1, 1, 1,
-        },
-        {
-            0, 1,
-            0, 0,
-            1, 1, 1,
-        },
+        0, 0,
+        64, 0,
+        64, 64,
+        0, 64,
     }
-    self.mesh = love.graphics.newMesh(points, "fan")
-end
 
-return Shape
+    local canvas = love.graphics.newCanvas(width, height)
+    local oldCanvas = love.graphics.getCanvas()
+    --local mesh = love.graphics.newMesh(points, "fan")
+
+    love.graphics.setCanvas(canvas)
+        --love.graphics.draw(mesh)
+        love.graphics.polygon("fill", points)
+    love.graphics.setCanvas(oldCanvas)
+
+    return love.graphics.newImage(canvas:newImageData())
+end
