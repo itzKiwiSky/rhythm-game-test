@@ -1,5 +1,7 @@
 PlayState = {}
 
+PlayState.levelname = "rat_river"
+
 function PlayState:enter()
     self.player = require 'game.src.Modules.Game.Player'
     self.player:load(push.getWidth() / 2, push.getHeight() / 2)
@@ -16,7 +18,6 @@ end
 
 function PlayState:update(elapsed)
     self.camera:zoomTo(math.lerp(self.camera.scale, self.camera.targetZoom, 0.1))
-
     self.player:update(elapsed)
 end
 
