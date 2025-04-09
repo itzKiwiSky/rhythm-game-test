@@ -71,15 +71,7 @@ function love.run()
     package.cpath = newCPath
 
     fontcache.init()
-
-    --[[
-    local addons = fsutil.scanFolder("src/Modules/System/Addons")
-    for a = 1, #addons, 1 do
-        local ad = addons[a]:gsub(".lua", "")
-        require(ad:gsub("/", "%."))
-    end
-    ]]--
-
+    
     love.graphics.setDefaultFilter("nearest", "nearest")
 
     require("src/Modules/System/Addons")

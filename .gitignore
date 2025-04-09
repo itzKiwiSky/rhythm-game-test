@@ -74,4 +74,5 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 
 #Api shit
-/src/ApiConfig.json
+game/src/*.json
+.commitid
