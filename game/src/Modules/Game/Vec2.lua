@@ -110,6 +110,11 @@ function Vec2:angleTo(other)
     return atan2(self.y, self.x)
 end
 
+function Vec2:angle(args)
+    local p2 = args or Vec2.ZERO()
+    return math.rad(math.atan2(self.y - p2.y, self.x - p2.x))
+end
+
 function Vec2:isZero()
     return self.x == 0 and self.y == 0
 end

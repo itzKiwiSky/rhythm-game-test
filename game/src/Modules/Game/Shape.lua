@@ -3,9 +3,9 @@ return function(width, height, points)
     height = height or 48
     points = points or {
         0, 0,
-        64, 0,
-        64, 64,
-        0, 64,
+        width, 0,
+        width, height,
+        0, height,
     }
 
     local canvas = love.graphics.newCanvas(width, height)

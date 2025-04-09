@@ -32,12 +32,9 @@ end
 
 function math.dist(x1, x2, y1, y2) return ((x2 - x1) ^ 2 + (y2 - y1) ^ 2) ^ 2 end
 
-function math.clamp(mode, low, n, high)
-    if n == low or n == high then return n
-    elseif mode == 'inverse' then
-        if n < low or n > high then return n end
-    else return math.min(math.max(low, n), high)
-    end
+function math.clamp(v, min, max)
+    if min > max then return math.clamp(v, min, max) end
+    return math.min(math.max(v, min), max)
 end
 
 function math.signed(n)

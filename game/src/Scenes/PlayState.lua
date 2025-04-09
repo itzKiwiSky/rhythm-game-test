@@ -2,11 +2,10 @@ PlayState = {}
 
 function PlayState:enter()
     self.player = require 'game.src.Modules.Game.Player'
-    self.player:load(90, 90)
+    self.player:load(push.getWidth() / 2, push.getHeight() / 2)
 
     self.camera = camera.new()
     self.camera.targetZoom = 1
-
 end
 
 function PlayState:draw()
@@ -22,7 +21,7 @@ function PlayState:update(elapsed)
 end
 
 function PlayState:keypressed(k)
-
+    self.player:keypressed(k)
 end
 
 return PlayState
